@@ -2,4 +2,4 @@ FROM gitpod/workspace-full
 
 RUN sudo apt-get update \
  && sudo apt-get install -y \
-    nano openscad00000
+    nano openscad
