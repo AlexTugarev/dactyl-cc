@@ -1,7 +1,32 @@
+image:
+  file: .gitpod.dockerfile
+
 # List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
 tasks:
-  - init: echo 'init script' # runs during prebuild
-    command: echo 'start script'
+  - init: |
+      cd build
+      cmake ../src
+      sleep 2
+      make
+      sleep 2
+      ./dactyl
+      sleep 2
+      openscad -o ../things/v1_left.stl v1_left.scad
+      sleep 2
+      openscad -o ../things/v1_right.stl v1_right.scad
+      sleep 2
+      openscad -o ../things/v1_bottom_left.stl v1_bottom_left.scad
+      sleep 2
+      openscad -o ../things/v1_bottom_right.stl v1_bottom_right.scad
+      sleep 2
+      openscad -o ../things/v1_left.stl v1_left.scad
+      sleep 2
+      openscad -o ../things/v1_right.stl v1_right.scad
+      sleep 2
+      openscad -o ../things/v1_bottom_left.stl v1_bottom_left.scad
+      sleep 2
+      openscad -o ../things/v1_bottom_right.stl v1_bottom_right.scad
+    command: code things/v1_left.stl
   
 # List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
 ports:
