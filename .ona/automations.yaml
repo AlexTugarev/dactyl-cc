@@ -1,0 +1,43 @@
+tasks:
+    configure:
+        name: Configure CMake
+        command: |
+            cd build
+            cmake ../src
+        triggeredBy:
+        - postDevcontainerStart
+
+    build:
+        name: Build Project
+        command: |
+            cd build
+            make
+        triggeredBy:
+        - manual
+
+    run:
+        name: Build and Run
+        command: |
+            cd build
+            make && ./dactyl
+        triggeredBy:
+        - manual
+
+    clean:
+        name: Clean Build
+        command: |
+            cd build
+            rm -rf *
+        triggeredBy:
+        - manual
+
+    rebuild:
+        name: Rebuild from Scratch
+        command: |
+            cd build
+            rm -rf *
+            cmake ../src
+            make
+        triggeredBy:
+        - manual
+
