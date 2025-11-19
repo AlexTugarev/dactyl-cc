@@ -41,3 +41,18 @@ tasks:
         triggeredBy:
         - manual
 
+    generate-stl:
+        name: Generate STL Files
+        command: |
+            cd build
+            if [ -f v1_left.scad ]; then
+                openscad -o ../things/v1_left.stl v1_left.scad
+                echo "Generated v1_left.stl"
+            fi
+            if [ -f v1_right.scad ]; then
+                openscad -o ../things/v1_right.stl v1_right.scad
+                echo "Generated v1_right.stl"
+            fi
+        triggeredBy:
+        - manual
+

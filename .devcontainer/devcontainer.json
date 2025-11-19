@@ -13,12 +13,13 @@
 			"extensions": [
 				"ms-vscode.cpptools",
 				"ms-vscode.cmake-tools",
-				"twxs.cmake"
+				"twxs.cmake",
+				"Antyos.openscad"
 			],
 			"settings": {
 				"cmake.configureOnOpen": true
 			}
 		}
 	},
-	"postCreateCommand": "cd build && cmake ../src"
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y openscad && cd build && cmake ../src"
 }
